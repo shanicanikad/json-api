@@ -36,7 +36,13 @@ app.put("/Naruto/score/:score", (req,res)=> {
     })
 })
 
-// app.delete("/Naruto")
+app.delete("/Naruto/:score", (req,res)=> {
+    Naruto.findOneAndDelete({score: req.params.score}, req.body)
+    .then(Naruto => {
+      res.json(Naruto)
+    })
+})
+
 app.listen(4000, () => {
     console.log("Your app serve is listen on a port that's over 4000!");
 })
