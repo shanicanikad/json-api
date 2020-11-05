@@ -29,8 +29,8 @@ app.post("/Naruto", (req, res)=> {
     })
 })
 
-app.put("/Naruto/:id", (req,res)=> {
-    Naruto.findOneAndUpdate({id: req.params.id}, req.body)
+app.put("/Naruto/score/:score", (req,res)=> {
+    Naruto.findOneAndUpdate({score: req.params.score}, req.body)
     .then(Naruto => {
       res.json(Naruto)
     })
