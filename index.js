@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const Naruto = require("./models/Naruto");
 const parser = require("body-parser");
+const cors = require("cors");
+
 
 app.use(parser.json());
+app.use(cors());
 
 
 app.get("/", (req, res)=> {
@@ -43,6 +46,8 @@ app.delete("/Naruto/:score", (req,res)=> {
     })
 })
 
-app.listen(4000, () => {
-    console.log("Your app serve is listen on a port that's over 4000!");
-})
+app.set("port", process.env.PORT || 4000);
+
+app.listen(app.get("port"), () => {
+    console.log(`✅ PORT: ${app.get("port")} 🌟`);
+  });
