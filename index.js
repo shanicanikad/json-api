@@ -32,15 +32,15 @@ app.post("/Naruto", (req, res)=> {
     })
 })
 
-app.put("/Naruto/score/:score", (req,res)=> {
-    Naruto.findOneAndUpdate({score: req.params.score}, req.body)
+app.put("/Naruto/id/:id", (req,res)=> {
+    Naruto.findByIdAndUpdate({id: req.params.id}, req.body)
     .then(Naruto => {
       res.json(Naruto)
     })
 })
 
-app.delete("/Naruto/:score", (req,res)=> {
-    Naruto.findOneAndDelete({score: req.params.score}, req.body)
+app.delete("/Naruto/:id", (req,res)=> {
+    Naruto.findByIdAndDelete({id: req.params.id}, req.body)
     .then(Naruto => {
       res.json(Naruto)
     })
